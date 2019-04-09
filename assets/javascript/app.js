@@ -4,8 +4,6 @@
 var number = 5;
 var intervalId;
 
-
-
 function run() {
   clearInterval(intervalId);
   intervalId = setInterval(decrement, 1000);
@@ -20,29 +18,9 @@ function decrement() {
     stop();
     // alert("Time Up!");
     console.log("times up");
-    $("#form").text("Time's up!!!");
-
-    
+    $("#form").text("ALL DONE!! Correct Answers: 0 Incorrect Answers: 0 Unanswered: 0 ");
   }
 }
-
-
-// function butClick() {
-//   console.log("times up");
-//   document.getElementById("demo").innerHTML = "Hello World";
-// }
-
-
-
-
-// $("button").click(function() {
-//   $(this).data('clicked', true);
-// });
-
-// if($("button").data('clicked')) {
-//   console.log("times up!!!!");
-//   $("#form").text("Time's up!!!");
-// }
 
 function stop() {
   clearInterval(intervalId);
@@ -50,31 +28,10 @@ function stop() {
 
 run();
 
-
-
-// function submitBut() {
-//   document.getElementById("demo").innerHTML = "Hello World";
-// }
-
-// $("#form").on("submit", function (event) {
-//   event.preventDefault();
-//   stop();
-//   var $answer = $("#form");
-//   var answer = $answer.val();
-//   console.log(answer);
-//   if (answer === "correct"){
-//     $("#form").text("TEST");
-//   }
-// });
-
-
-
-
-
-
-
-
-
+function butClick() {
+  $("#form").text("ALL DONE!! Correct Answers: 0 Incorrect Answers: 0 Unanswered: 0 ");
+  stop();
+}
 
 
 // });
