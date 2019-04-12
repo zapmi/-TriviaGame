@@ -1,11 +1,10 @@
-// $(function () {
-$(document).ready(function () {
-  //Timer
+$(function () {
+
   var number = 5;
   var intervalId;
   var correct = 0;
   var incorrect = 0;
-  var unanswered = 0;
+  // var unanswered = 0;
   var questions = [
     {
       question: "What is my favorite color?",
@@ -23,62 +22,54 @@ $(document).ready(function () {
       answer: "Hazel"
     }
   ];
+//SHOW MAIN PAGE BEFORE CLICK
+  $("#doneBut").hide();
 
   function startGame() {
-    $("#start").hide();
+    $("#startBut").hide();
     $("#showNumber").append();
-    console.log("TEST");
-    // startTime();
-    // displayQuestion();
+    $("#doneBut").show();
+    timer();
+    console.log("Game has started");
   }
 
-  // Start Game On Click
-  $("#start").on("click", function () {
+  function endGame() {
+    $("#showNumber").hide();
+    $("#doneBut").hide();
+    stop();
+    console.log("times up");
+
+
+  }
+
+  // start game on click
+  $("#startBut").on("click", function () {
     startGame();
-    timer();
   });
 
-
-
-  // $('#startBut').click(function () {
-  // $('#quizMessage').hide();
-  // resetVariables();
-  // displayQuestion();
-  // $('#question').show();
-  // $('.btn').show();
-  // $('#timerDisplay').show();
-  // timer.stop();
-  // timer.reset();
-  // timer.start();
-
-  // });
-
+  //end game on click
+  $("#doneBut").on("click", function () {
+    endGame();
+  });
 
   function timer() {
-
-    function run() {
-      clearInterval(intervalId);
-      intervalId = setInterval(decrement, 1000);
-    }
-
-    function decrement() {
-      number--;
-
-      $("#showNumber").html("<h1>Time remianing: " + number + "</h1>");
-
-      if (number === 0) {
-        stop();
-        // alert("Time Up!");
-        console.log("times up");
-        // $("#quiz").text("ALL DONE!! Correct Answers: " + correct + " Incorrect Answers: " + incorrect + " Unanswered: " + unanswered);
-      }
-    }
-
-    function stop() {
-      clearInterval(intervalId);
-    }
-    run();
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
   }
+
+  function stop() {
+    clearInterval(intervalId);
+  }
+
+  function decrement() {
+    number--;
+    $("#showNumber").html("<h1>Time remianing: " + number + "</h1>");
+    if (number === 0) {
+      stop();
+      endGame();
+    }
+  }
+
 
   // for (var i = 0; i < questions.length; i++) {
   //   // var response = window.prompt(questions[i].prompt);
@@ -101,3 +92,17 @@ $(document).ready(function () {
 
   // }
 });
+
+
+ // $('#startBut').click(function () {
+  //   $('#quizMessage').hide();
+  //   resetVariables();
+  //   displayQuestion();
+  //   $('#question').show();
+  //   $('.btn').show();
+  //   $('#timerDisplay').show();
+  //   timer.stop();
+  //   timer.reset();
+  //   timer.start();
+
+  // });
