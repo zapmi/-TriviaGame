@@ -1,10 +1,12 @@
 $(function () {
 
-  var number = 5;
+  var number = 21;
   var intervalId;
   var correct = 0;
   var incorrect = 0;
-  // var unanswered = 0;
+  var unanswered = 0;
+  var correctAns;
+  var userAns;
   var questions = [
     {
       question: "What is my favorite color?",
@@ -30,28 +32,6 @@ $(function () {
   //SHOW MAIN PAGE BEFORE CLICK
   $("#doneBut").hide();
 
-  function startGame() {
-    $("#startBut").hide();
-    $("#showTimer").append();
-    $("#doneBut").show();
-    timer();
-    console.log("Game has started");
-    showQuestions();
-  }
-
-  function endGame() {
-    $("#showTimer").hide();
-    $("#doneBut").hide();
-    $("#mainQs").hide();
-    stop();
-    console.log("times up");
-    function stop() {
-      clearInterval(intervalId);
-    }
-
-
-  }
-
   // start game on click
   $("#startBut").on("click", function () {
     startGame();
@@ -61,6 +41,29 @@ $(function () {
   $("#doneBut").on("click", function () {
     endGame();
   });
+
+  function startGame() {
+    $("#startBut").hide();
+    $("#showTimer").append();
+    $("#doneBut").show();
+    timer();
+    showQuestions();
+    console.log("Game has started");
+
+  }
+
+  function endGame() {
+    $("#showTimer, #doneBut, #mainQs").hide();
+    // $("#doneBut").hide();
+    // $("#mainQs").hide();
+    stop();
+    checkScore();
+    showScore()
+    console.log("times up");
+    function stop() {
+      clearInterval(intervalId);
+    }
+  }
 
   function timer() {
     clearInterval(intervalId);
@@ -77,26 +80,45 @@ $(function () {
 
   function showQuestions() {
     for (var i = 0; i < questions.length; i++) {
+
       $("#mainQs").append('<div id="question">' + questions[i].question + '</div>')
 
-      for (var j = 0; j < questions[i].choices.length; j++) {
-        $("#mainQs").append('<div id="choices"><input type="radio">' + questions[i].choices[j] + '</input></div>');
+      // for (var j = 0; j < questions[i].choices.length; j++) {
+      $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[0] + '</label></div>');
 
+      $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[1] + '</label></div>');
 
-      }
+      $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[2] + '</label></div>');
 
-      // var answer1 = question[i].answer;
-      // var answer2 = question[i].answer;
-      // var answer3 = question[i].answer;
+      $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[3] + '</label></div>');
 
-      
     }
-    console.log(questions);
+
+  }
+
+  function checkScore() {
+    for (var i = 0; i < questions.length; i++) {
+      userAns = $('input[id=radio' + i + ']:checked + label').text();
+      correctAns = questions[i].answer;
+      if (userAns == correctAns) {
+        correct++;
+        // console.log(correct);
+      }
+      else if (userAns == "") {
+        unanswered++;
+      }
+      else if (userAns !== correctAns){
+        incorrect++;
+      }
+    }
+  }
+
+  function showScore() {
+    $("#results").html("<h1>Correct Answers: </h1>" + correct + "<h1>Incorrect Answers: </h1>" + incorrect + "<h1>Unanswered: </h1>" + unanswered);
   }
 
 
-
-
+});
 
 
 
@@ -126,4 +148,4 @@ $(function () {
   // }
 
   // }
-});
+
