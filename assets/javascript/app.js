@@ -20,24 +20,34 @@ $(function () {
       question: "What color are my eyes?",
       choices: ["Hazel", "Brown", "Green", "Blue"],
       answer: "Hazel"
+    },
+    {
+      question: "How old am I?",
+      choices: ["21", "28", "30", "26"],
+      answer: "28"
     }
   ];
-//SHOW MAIN PAGE BEFORE CLICK
+  //SHOW MAIN PAGE BEFORE CLICK
   $("#doneBut").hide();
 
   function startGame() {
     $("#startBut").hide();
-    $("#showNumber").append();
+    $("#showTimer").append();
     $("#doneBut").show();
     timer();
     console.log("Game has started");
+    showQuestions();
   }
 
   function endGame() {
-    $("#showNumber").hide();
+    $("#showTimer").hide();
     $("#doneBut").hide();
+    $("#mainQs").hide();
     stop();
     console.log("times up");
+    function stop() {
+      clearInterval(intervalId);
+    }
 
 
   }
@@ -57,27 +67,52 @@ $(function () {
     intervalId = setInterval(decrement, 1000);
   }
 
-  function stop() {
-    clearInterval(intervalId);
-  }
-
   function decrement() {
     number--;
-    $("#showNumber").html("<h1>Time remianing: " + number + "</h1>");
+    $("#showTimer").html("<h1>Time remianing: " + number + "</h1>");
     if (number === 0) {
-      stop();
       endGame();
     }
   }
 
+  function showQuestions() {
+    for (var i = 0; i < questions.length; i++) {
+      $("#mainQs").append('<div id="question">' + questions[i].question + '</div>')
+
+      for (var j = 0; j < questions[i].choices.length; j++) {
+        $("#mainQs").append('<div id="choices"><input type="radio">' + questions[i].choices[j] + '</input></div>');
+
+
+      }
+
+      // var answer1 = question[i].answer;
+      // var answer2 = question[i].answer;
+      // var answer3 = question[i].answer;
+
+      
+    }
+    console.log(questions);
+  }
+
+
+
+
+
+
+
+
+  // $("#mainQs").append("<input type="radio"  value="answer" id="myRadio"></input>");
+
 
   // for (var i = 0; i < questions.length; i++) {
-  //   // var response = window.prompt(questions[i].prompt);
-  //   var response = $("mainQ").append(questions[i]);
-  //   if (response == questions[i].answer) {
-  //     correct++;
-  //     console.log("Correct!");
-  //   }
+
+  // }
+  // var response = (questions[i]);
+  // question = $("mainQ").append(questions[i]);
+  // if (response == questions[i].answer) {
+  //   correct++;
+  //   console.log("Correct!");
+  // }
   //   else if (response !== questions[i].answer) {
   //     incorrect++;
   //     console.log("Wrong!");
@@ -92,17 +127,3 @@ $(function () {
 
   // }
 });
-
-
- // $('#startBut').click(function () {
-  //   $('#quizMessage').hide();
-  //   resetVariables();
-  //   displayQuestion();
-  //   $('#question').show();
-  //   $('.btn').show();
-  //   $('#timerDisplay').show();
-  //   timer.stop();
-  //   timer.reset();
-  //   timer.start();
-
-  // });
