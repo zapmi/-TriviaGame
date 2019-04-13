@@ -9,7 +9,7 @@ $(function () {
   var userAns;
   var questions = [
     {
-      question: "What is my favorite color?",
+      question: "In what year did Germany invade Poland?",
       choices: ["Red", "Yellow", "Green", "Blue"],
       answer: "Yellow"
     },
@@ -31,6 +31,7 @@ $(function () {
   ];
   //SHOW MAIN PAGE BEFORE CLICK
   $("#doneBut").hide();
+  $("#quiz").hide();
 
   // start game on click
   $("#startBut").on("click", function () {
@@ -44,6 +45,7 @@ $(function () {
 
   function startGame() {
     $("#startBut").hide();
+    $("#quiz").show();
     $("#showTimer").append();
     $("#doneBut").show();
     timer();
