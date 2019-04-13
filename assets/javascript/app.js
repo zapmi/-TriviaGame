@@ -114,7 +114,7 @@ $(function () {
   }
 
   function showScore() {
-    $("#results").html("<h1>Correct Answers: </h1>" + correct + "<h1>Incorrect Answers: </h1>" + incorrect + "<h1>Unanswered: </h1>" + unanswered);
+    $("#results").html("Correct Answers: " + correct + "<br> Incorrect Answers: " + incorrect + " <br>Unanswered: " + unanswered);
   }
 
 
