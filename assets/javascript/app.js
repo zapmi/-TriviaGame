@@ -1,6 +1,6 @@
 $(function () {
 
-  var number = 21;
+  var number = 31;
   var intervalId;
   var correct = 0;
   var incorrect = 0;
@@ -10,23 +10,23 @@ $(function () {
   var questions = [
     {
       question: "In what year did Germany invade Poland?",
-      choices: ["Red", "Yellow", "Green", "Blue"],
-      answer: "Yellow"
+      choices: ["1944", "1939", "1942", "1940"],
+      answer: "1939"
     },
     {
-      question: "How many cats do I have?",
-      choices: ["3", "1", "2", "5"],
-      answer: "2"
+      question: "What country was not part of the Axis Powers?",
+      choices: ["Japan", "United States", "Italy", "Germany"],
+      answer: "United States"
     },
     {
-      question: "What color are my eyes?",
-      choices: ["Hazel", "Brown", "Green", "Blue"],
-      answer: "Hazel"
+      question: "What research and development project produced the first nuclear weapons during World War II?",
+      choices: ["Albert's Project", "Alan Parsons Project", "Manhattan Project", "Project Washington"],
+      answer: "Manhattan Project"
     },
     {
-      question: "How old am I?",
-      choices: ["21", "28", "30", "26"],
-      answer: "28"
+      question: "What was the second city the United States dropped a nuclear bomb on?",
+      choices: ["Yokohama", "Nagasaki", "Hiroshima", "Yoko Ono"],
+      answer: "Nagasaki"
     }
   ];
   //SHOW MAIN PAGE BEFORE CLICK
@@ -74,7 +74,7 @@ $(function () {
 
   function decrement() {
     number--;
-    $("#showTimer").html("<h1>Time remianing: " + number + "</h1>");
+    $("#showTimer").html("<h1>Time remianing: <font color='red'>" + number + "</font></h1>");
     if (number === 0) {
       endGame();
     }
@@ -83,7 +83,7 @@ $(function () {
   function showQuestions() {
     for (var i = 0; i < questions.length; i++) {
 
-      $("#mainQs").append('<div id="question">' + questions[i].question + '</div>')
+      $("#mainQs").append('<div id="question"><font color="red">' + questions[i].question + '</font></div>')
 
       // for (var j = 0; j < questions[i].choices.length; j++) {
       $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[0] + '</label></div>');
@@ -116,7 +116,7 @@ $(function () {
   }
 
   function showScore() {
-    $("#results").html("Correct Answers: " + correct + "<br> Incorrect Answers: " + incorrect + " <br>Unanswered: " + unanswered);
+    $("#results").html("Correct Answers: <font color='red'>" + correct + "</font><br> Incorrect Answers: <font color='red'>" + incorrect + "</font> <br>Unanswered: <font color='red'>" + unanswered + "</font>");
   }
 
 
