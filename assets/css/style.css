@@ -19,13 +19,15 @@ body {
 }
 
 header {
-    /* background-color: goldenrod; */
-    /* font-family: "deutschGotisch"; */
     font-size: 75px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+}
+
+p1 {
+    color: red;
 }
 
 #showTimer {
@@ -40,12 +42,9 @@ header {
     margin-bottom: 40px;
     padding: 20px 0px 0px 0px;
     width: fit content;
-    /* margin-right: 50px; */
-    /* padding: 0px; */
 }
 
 #mainQs {
-    /* font-family: "Germania"; */
     font-size: 30px;
     color: ghostwhite;
     text-align: center;
@@ -65,7 +64,6 @@ header {
     background-color: black;
     color: red;
     display: block;
-    /* font-family: "deutschGotisch"; */
     font-size: 50px;
     margin: 0 auto;
     padding: 15px;
@@ -77,5 +75,4 @@ header {
     font-size: 50px;
     text-align: center;
     margin-bottom: 40px;
-    /* margin: 0 auto; */
 }

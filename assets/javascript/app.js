@@ -37,7 +37,7 @@ $(function () {
   ];
 
 
-  //SHOW MAIN PAGE BEFORE CLICK
+  //hides content before clicking start
   $("#doneBut").hide();
   $("#quiz").hide();
 
@@ -59,13 +59,10 @@ $(function () {
     timer();
     showQuestions();
     console.log("Game has started");
-
   }
 
   function endGame() {
     $("#showTimer, #doneBut, #mainQs").hide();
-    // $("#doneBut").hide();
-    // $("#mainQs").hide();
     stop();
     checkScore();
     showScore()
@@ -75,6 +72,7 @@ $(function () {
     }
   }
 
+  //Timer
   function timer() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
@@ -88,9 +86,9 @@ $(function () {
     }
   }
 
+  // function that loops through var questions and displays questions and choices with radio buttons
   function showQuestions() {
     for (var i = 0; i < questions.length; i++) {
-
       $("#mainQs").append('<div id="question"><font color="red">' + questions[i].question + '</font></div>')
 
       for (var j = 0; j < questions[i].choices.length; j++) {
@@ -100,6 +98,7 @@ $(function () {
 
   }
 
+  // function that loops through questions and checks answers 
   function checkScore() {
     for (var i = 0; i < questions.length; i++) {
       userAns = $('input[id=radio' + i + ']:checked + label').text();
