@@ -4,7 +4,12 @@
     url("../fonts/deutschGotisch.otf") format('truetype');
     /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
-
+@font-face {
+    font-family: "Germania";
+    src: url("../fonts/Germania.ttf") format("woff"), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url("../fonts/Germania.ttf") format('truetype');
+    /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
 body {
     background-image: url("../images/germany.gif");
     background-size: cover;
@@ -40,6 +45,7 @@ header {
 }
 
 #mainQs {
+    font-family: "Germania";
     font-size: 30px;
     color: ghostwhite;
     text-align: center;

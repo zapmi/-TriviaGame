@@ -28,7 +28,15 @@ $(function () {
       choices: ["Yokohama", "Nagasaki", "Hiroshima", "Yoko Ono"],
       answer: "Nagasaki"
     }
+    ,
+    {
+      question: "What English code breaker created a machine that helped to decrypt Nazi messages?",
+      choices: ["Alan Turing", "Albert Einstein", "Charles Babbage", "Stephen Hawking"],
+      answer: "Alan Turing"
+    }
   ];
+
+  
   //SHOW MAIN PAGE BEFORE CLICK
   $("#doneBut").hide();
   $("#quiz").hide();
