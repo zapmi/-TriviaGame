@@ -1,6 +1,6 @@
 $(function () {
 
-  var number = 31;
+  var number = 60;
   var intervalId;
   var correct = 0;
   var incorrect = 0;
