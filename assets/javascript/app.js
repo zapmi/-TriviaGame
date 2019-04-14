@@ -120,8 +120,6 @@ $(function () {
   function showScore() {
     $("#results").html("Correct Answers: <font color='red'>" + correct + "</font><br> Incorrect Answers: <font color='red'>" + incorrect + "</font> <br>Unanswered: <font color='red'>" + unanswered + "</font>");
   }
-
-
 });
 
 
