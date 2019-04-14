@@ -36,7 +36,7 @@ $(function () {
     }
   ];
 
-  
+
   //SHOW MAIN PAGE BEFORE CLICK
   $("#doneBut").hide();
   $("#quiz").hide();
@@ -93,15 +93,9 @@ $(function () {
 
       $("#mainQs").append('<div id="question"><font color="red">' + questions[i].question + '</font></div>')
 
-      // for (var j = 0; j < questions[i].choices.length; j++) {
-      $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[0] + '</label></div>');
-
-      $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[1] + '</label></div>');
-
-      $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[2] + '</label></div>');
-
-      $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[3] + '</label></div>');
-
+      for (var j = 0; j < questions[i].choices.length; j++) {
+        $("#mainQs").append('<div class="mainQ"><input class="input" type="radio" name="radio-group' + i + '" id="radio' + i + '"><label class="form-check-label" id="radio' + i + 'label" for="radio' + i + '">' + questions[i].choices[j] + '</label></div>');
+      }
     }
 
   }
@@ -117,7 +111,7 @@ $(function () {
       else if (userAns == "") {
         unanswered++;
       }
-      else if (userAns !== correctAns){
+      else if (userAns !== correctAns) {
         incorrect++;
       }
     }
@@ -130,32 +124,4 @@ $(function () {
 
 });
 
-
-
-
-  // $("#mainQs").append("<input type="radio"  value="answer" id="myRadio"></input>");
-
-
-  // for (var i = 0; i < questions.length; i++) {
-
-  // }
-  // var response = (questions[i]);
-  // question = $("mainQ").append(questions[i]);
-  // if (response == questions[i].answer) {
-  //   correct++;
-  //   console.log("Correct!");
-  // }
-  //   else if (response !== questions[i].answer) {
-  //     incorrect++;
-  //     console.log("Wrong!");
-  //   }
-  //   else if (respone == "") {
-
-  //     unanswered++;
-
-  //     console.log("blank");
-  //   }
-  // }
-
-  // }
 
